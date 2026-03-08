@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  # Machine Learning Training Service
+  training:
+    build: .
+    volumes:
+      - .:/app
+    command: python main.py
+
+  # FastAPI Inference API
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    command: uvicorn api.fastapi_app:app --host 0.0.0.0 --port 8000
+
+  # Streamlit Predictor UI
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    command: streamlit run app/streamlit_app.py --server.port 8501
