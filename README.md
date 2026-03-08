@@ -112,5 +112,4 @@ docker-compose up --build
 - **Containerization**: Docker, Docker Compose
 
 ---
-Created by Antigravity AI Engineering
-"Training for the stars!" 🌌
+
